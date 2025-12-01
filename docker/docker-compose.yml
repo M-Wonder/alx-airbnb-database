@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  db:
+    build: .
+    container_name: airbnb_db
+    environment:
+      POSTGRES_USER: airbnb
+      POSTGRES_PASSWORD: airbnbpw
+      POSTGRES_DB: airbnb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
