@@ -45,9 +45,9 @@ INSERT INTO Booking (booking_id, property_id, user_id, start_date, end_date, tot
 SELECT gen_random_uuid(), p.property_id, u.user_id, start_date, end_date, total_price, status
 FROM (
     VALUES
-        ('2025-11-10', '2025-11-14', 26000.00, 'confirmed'),
-        ('2025-12-01', '2025-12-05', 74000.00, 'pending'),
-        ('2025-12-10', '2025-12-15', 92500.00, 'confirmed')
+        ('2025-11-10'::date, '2025-11-14'::date, 26000.00, 'confirmed'),
+        ('2025-12-01'::date, '2025-12-05'::date, 74000.00, 'pending'),
+        ('2025-12-10'::date, '2025-12-15'::date, 92500.00, 'confirmed')
 ) AS b(start_date, end_date, total_price, status)
 JOIN Property p ON TRUE
 JOIN "User" u ON u.role = 'guest'
